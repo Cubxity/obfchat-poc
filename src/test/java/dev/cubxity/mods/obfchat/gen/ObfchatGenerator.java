@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.stream.IntStream;
 
 public class ObfchatGenerator {
@@ -22,7 +23,7 @@ public class ObfchatGenerator {
 
         // Shuffle the glyphs
         var map = new ArrayList<>(IntStream.range(0, 256).boxed().toList());
-//        Collections.shuffle(map); FIXME
+        Collections.shuffle(map);
 
         // Map the glyphs to random places as defined above
         for (var sourceIndex = 0; sourceIndex < 256; sourceIndex++) {
@@ -52,7 +53,7 @@ public class ObfchatGenerator {
             var chars = new StringBuilder();
             for (var col = 0; col < 16; col++) {
                 var index = row * 16 + col;
-                chars.append(String.format("\\u%04X", START_CODE_POINT + map.get(index)));
+                chars.append(String.format("\\u%04X", START_CODE_POINT + index));
             }
             fontProviderChars.add(chars.toString());
         }
