@@ -7,6 +7,9 @@
   ],
   "client": [
   ],
+  "server": [
+    "network.chat.MixinPlayerChatMessage"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

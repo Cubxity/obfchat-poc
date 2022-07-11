@@ -22,7 +22,7 @@ public class ObfchatGenerator {
 
         // Shuffle the glyphs
         var map = new ArrayList<>(IntStream.range(0, 256).boxed().toList());
-//        Collections.shuffle(map);
+//        Collections.shuffle(map); FIXME
 
         // Map the glyphs to random places as defined above
         for (var sourceIndex = 0; sourceIndex < 256; sourceIndex++) {
