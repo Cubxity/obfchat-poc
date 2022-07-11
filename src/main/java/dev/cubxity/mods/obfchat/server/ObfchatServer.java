@@ -18,10 +18,6 @@ public class ObfchatServer implements DedicatedServerModInitializer {
     // The page number (represented in hex) can be found in the file name:
     // For example: "unicode_page_4c.png"
     private static final int START_CODE_POINT = 0x4c * 256;
-
-    // 2607 (Hex) 9735
-    // 0061 (hex) 97
-
     private final Gson gson = new Gson();
 
     @Override
@@ -55,11 +51,10 @@ public class ObfchatServer implements DedicatedServerModInitializer {
             contents = new LiteralContents(builder.toString());
         }
 
-        MutableComponent newComponent = MutableComponent.create(contents);
+        var newComponent = MutableComponent.create(contents);
         newComponent.setStyle(component.getStyle());
 
-
-        for (Component sibling : component.getSiblings()) {
+        for (var sibling : component.getSiblings()) {
             newComponent.append(modify(sibling, map));
         }
 
