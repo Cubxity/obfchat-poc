@@ -3,6 +3,8 @@
 This PoC demonstrates how the chat can be obfuscated on the server, while remaining signed.
 This targets the Minecraft version 1.19.1-pre4.
 
+https://user-images.githubusercontent.com/27609129/178434755-2ff5efbe-9427-4a76-ba8a-13eb02ad29af.mp4
+
 ## Setting up
 
 1. Run [ObfchatGenerator](src/test/java/dev/cubxity/mods/obfchat/gen/ObfchatGenerator.java)
