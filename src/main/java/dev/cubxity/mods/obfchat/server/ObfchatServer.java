@@ -40,7 +40,7 @@ public class ObfchatServer implements DedicatedServerModInitializer {
         if (contents instanceof LiteralContents literal) {
             var builder = new StringBuilder();
             literal.text().codePoints().forEach(codePoint -> {
-                if (codePoint > 255) {
+                if (codePoint > 255 || codePoint == 32) {
                     builder.appendCodePoint(codePoint);
                 } else {
                     builder.appendCodePoint(map[codePoint]);
