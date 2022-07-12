@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.stream.IntStream;
 
 public class ObfchatGenerator {
+    // This is the unicode code point to start at. This will occupy 256 proceeding codepoints.
     private static final int START_CODE_POINT = 0x4c * 256;
 
     public static void main(String[] args) throws IOException {
@@ -72,13 +73,17 @@ public class ObfchatGenerator {
         Files.writeString(fontDir.resolve("default.json"), fontJson.toString().replace("\\\\", "\\"));
 
 
+        var glyphs = new JsonObject();
+        glyphs.addProperty("offset", START_CODE_POINT);
+
         var glyphsMap = new JsonArray();
         for (int i : map) {
             glyphsMap.add(i);
         }
+        glyphs.add("glyphs", glyphsMap);
 
         var runDir = Path.of("run");
         Files.createDirectories(runDir);
-        Files.writeString(runDir.resolve("glyphs.json"), glyphsMap.toString());
+        Files.writeString(runDir.resolve("glyphs.json"), glyphs.toString());
     }
 }
